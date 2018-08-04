@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="port">3306</entry>
+<entry key="password"/>
+<entry key="host">localhost</entry>
+<entry key="database">ghdesktop</entry>
+<entry key="username">root</entry>
+</properties>
