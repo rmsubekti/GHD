@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0373899a-bebf-47b0-a6c8-3dc2bf17228c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="New Dataset 1" uuid="09f9516f-76ba-4b8f-8b57-567adee2c330">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     produk_terjual.`produk_id_produk` AS produk_terjual_produk_id_produk,
+     produk_terjual.`produk_nama` AS produk_terjual_produk_nama,
+     produk_terjual.`terjual` AS produk_terjual_terjual,
+     produk_terjual.`haga_terjual` AS produk_terjual_haga_terjual,
+     produk_terjual.`dalam_transaksi` AS produk_terjual_dalam_transaksi
+FROM
+     `produk_terjual` produk_terjual]]>
+		</queryString>
+		<field name="produk_terjual_produk_id_produk" class="java.lang.String"/>
+		<field name="produk_terjual_produk_nama" class="java.lang.String"/>
+		<field name="produk_terjual_terjual" class="java.math.BigDecimal"/>
+		<field name="produk_terjual_haga_terjual" class="java.math.BigDecimal"/>
+		<field name="produk_terjual_dalam_transaksi" class="java.lang.Long"/>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     produk_terjual.`produk_id_produk` AS produk_terjual_produk_id_produk,
+     produk_terjual.`produk_nama` AS produk_terjual_produk_nama,
+     produk_terjual.`terjual` AS produk_terjual_terjual,
+     produk_terjual.`haga_terjual` AS produk_terjual_haga_terjual,
+     produk_terjual.`dalam_transaksi` AS produk_terjual_dalam_transaksi
+FROM
+     `produk_terjual` produk_terjual]]>
+	</queryString>
+	<field name="produk_terjual_produk_id_produk" class="java.lang.String"/>
+	<field name="produk_terjual_produk_nama" class="java.lang.String"/>
+	<field name="produk_terjual_terjual" class="java.math.BigDecimal"/>
+	<field name="produk_terjual_haga_terjual" class="java.math.BigDecimal"/>
+	<field name="produk_terjual_dalam_transaksi" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 1" style="table 1" x="0" y="0" width="555" height="61" uuid="b31cc255-cffe-4bc1-9a0c-67b5ab439dcb"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 1" uuid="9e4fd6df-3268-4a8d-99e5-b99a3af09ed5">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="8de60d19-0302-45d5-a9bf-53967d1d8185">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="bb8f0525-c6a4-4f33-aafb-db9d63e43f30"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11" isBold="true"/>
+								</textElement>
+								<text><![CDATA[ID Produk]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="a1a307b0-370b-42a8-8671-9deb2dc188f6"/>
+								<textFieldExpression><![CDATA[$F{produk_terjual_produk_id_produk}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="141" uuid="409c6f31-a45d-4b76-ab1b-8d777f812a09">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="141" height="30" uuid="2a22eb68-22d2-496a-a9f0-b48582be3f80"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Nama Produk]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="141" height="20" uuid="09f5ca90-e691-4367-84ac-34db02bad61f"/>
+								<textFieldExpression><![CDATA[$F{produk_terjual_produk_nama}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="1dbce013-0fcc-4b25-86b6-37dce051484d">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30" uuid="dc9db378-46c0-42bf-82e1-26ce38812596"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Jumlah Terjual]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="110" height="20" uuid="54c2fdf8-450e-49d8-be95-f11262a7f4a2"/>
+								<textFieldExpression><![CDATA[$F{produk_terjual_terjual}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="119" uuid="ea2a8293-2719-4cdd-bc1e-774bfd6e3c0e">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="119" height="30" uuid="2bf11274-c408-48a8-acb8-4cf9e7e26758"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Harga Terjual]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="119" height="20" uuid="26dccbef-123a-4afc-86d8-1b4846f4cc83"/>
+								<textFieldExpression><![CDATA[$F{produk_terjual_haga_terjual}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="95" uuid="26814e9a-a366-4c19-a607-8fd60c6d07a0">
+						<jr:columnHeader style="table 1_CH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="95" height="30" uuid="291c7065-bd81-4937-8b3b-78ed4b6ca5ad"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="11" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total Dipesan]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 1_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="95" height="20" uuid="4071587f-51df-46fa-83a2-03e970355499"/>
+								<textFieldExpression><![CDATA[$F{produk_terjual_dalam_transaksi}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
