@@ -44,7 +44,6 @@ public class FrmTransaksi extends javax.swing.JFrame {
         initComponents();
         DTransaksiDAO = Factory.getDetailDAO();
         initTableBarang();
-        setLocationRelativeTo(this);
         initTableTransaksi();
         refreshIsiTable();
     }
@@ -442,6 +441,7 @@ public class FrmTransaksi extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed

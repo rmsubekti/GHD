@@ -42,7 +42,6 @@ public class FrmProduk extends javax.swing.JFrame {
      */
     public FrmProduk() {
         initComponents();
-        setLocationRelativeTo(this);
         kategoriDAO = Factory.getKategoriDAO();
         addComboItem();
         tableHeader = new String[]{
@@ -409,6 +408,7 @@ private class ItemRenderer extends BasicComboBoxRenderer {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyTyped

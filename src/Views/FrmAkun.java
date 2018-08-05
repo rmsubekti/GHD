@@ -33,7 +33,6 @@ public class FrmAkun extends javax.swing.JFrame {
      */
     public FrmAkun() {
         initComponents();
-        setLocationRelativeTo(this);
         akunDAO = Factory.getAkunDAO();
         tableHeader = new String[]{
             "ID",
@@ -333,6 +332,7 @@ public class FrmAkun extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyTyped

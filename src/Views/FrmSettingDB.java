@@ -24,7 +24,6 @@ public class FrmSettingDB extends javax.swing.JFrame {
      */
     public FrmSettingDB() {
         initComponents();
-        setLocationRelativeTo(this);
         SettingDAO  = Factory.getSettingDAO();
         setting = SettingDAO.getSetting();
         if (setting!=null) {
@@ -172,6 +171,7 @@ public class FrmSettingDB extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestActionPerformed

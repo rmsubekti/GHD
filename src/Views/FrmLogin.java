@@ -23,7 +23,6 @@ public class FrmLogin extends javax.swing.JFrame {
      */
     public FrmLogin() {
         initComponents();
-        setLocationRelativeTo(this);
     }
 
     /**
@@ -46,6 +45,8 @@ public class FrmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocation(new java.awt.Point(0, 0));
         setResizable(false);
 
         jLabel1.setText("UserName");
@@ -127,6 +128,7 @@ public class FrmLogin extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -142,8 +144,7 @@ public class FrmLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Kombinasi username dan password "
                     + "yang anda masukkan tidak ditemukan.", "Login Gagal", JOptionPane.ERROR_MESSAGE);
         }else{
-            FrmMenu menu = new FrmMenu();
-            menu.akun = listAkun.get(0);
+            FrmMenu menu = new FrmMenu(listAkun.get(0));
             menu.setVisible(true);
             this.dispose();
         }

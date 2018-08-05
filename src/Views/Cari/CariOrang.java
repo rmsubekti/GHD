@@ -84,6 +84,9 @@ public class CariOrang extends javax.swing.JDialog {
         btnCari = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cari Orang");
+        setAlwaysOnTop(true);
+        setType(java.awt.Window.Type.UTILITY);
 
         tblOrang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

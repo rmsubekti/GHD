@@ -32,7 +32,6 @@ public class CariBarang extends javax.swing.JDialog {
     public CariBarang(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setLocationRelativeTo(this);
         barangDAO = Factory.getProdukDAO();
         tableHeader = new String[]{
             "ID",
@@ -84,6 +83,8 @@ public class CariBarang extends javax.swing.JDialog {
         btnCari = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Cari barang");
+        setType(java.awt.Window.Type.UTILITY);
 
         tblBarang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -143,6 +144,7 @@ public class CariBarang extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtCariKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCariKeyTyped

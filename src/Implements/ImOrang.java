@@ -136,6 +136,29 @@ public class ImOrang implements IOrang {
 
     @Override
     public List selectKaryawan(String id, String nama) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        query="SELECT DISTINCT orang.* FROM orang INNER JOIN akun ON orang.id_orang = akun.id_orang where orang.id_orang like '%" +
+                id + "%' or orang.nama like '%" + nama + "' order by id_orang ASC";
+        if (koneksi.eksekusiQuery(query, true)) {
+            rsOrang = koneksi.getRs();
+            listOrang = new ArrayList<>();
+            try{
+                while(rsOrang.next()){
+                    Orang orang = new Orang(
+                            rsOrang.getString("id_orang"),
+                            rsOrang.getString("nama"),
+                            rsOrang.getString("alamat"),
+                            rsOrang.getString("email"),
+                            rsOrang.getString("telpon")
+                    );
+                    listOrang.add(orang);
+                }
+                rsOrang.close();
+            } catch (SQLException ex) {
+                System.out.println("Err(Select Orang) :" + ex);
+                return null;
+            }
+            return listOrang;
+        }
+        return null;
     }
 }

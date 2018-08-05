@@ -13,17 +13,29 @@ import Reports.ViewReport;
  * @author Rahmat Subekti
  */
 public class FrmMenu extends javax.swing.JFrame {
-    public Akun akun = null;
+    private Akun akun ;
 
     /**
      * Creates new form FrmMenu
+     * @param akun
      */
-    public FrmMenu() {
+    public FrmMenu(Akun akun) {
         initComponents();
-        setLocationRelativeTo(this);
         this.setExtendedState(this.MAXIMIZED_BOTH);
+        initRole(akun);
     }
-
+    private void initRole(Akun akun){
+        if (akun != null) {
+            lblUsername.setText(akun.getUsername());
+            lblRole.setText(akun.getRole());
+            if (akun.getRole().equals("Kasir")) {
+                mnLaporan.setVisible(false);
+                mnManagerAkun.setVisible(false);
+                mnDbSetting.setVisible(false);
+                mnKaryawan.setVisible(false);
+            }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,6 +46,10 @@ public class FrmMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jToolBar1 = new javax.swing.JToolBar();
+        jLabel1 = new javax.swing.JLabel();
+        lblRole = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JToolBar.Separator();
+        lblUsername = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lbTransaksi = new javax.swing.JLabel();
         lbProduk = new javax.swing.JLabel();
@@ -45,21 +61,31 @@ public class FrmMenu extends javax.swing.JFrame {
         mnKaryawan = new javax.swing.JMenuItem();
         mnProduk = new javax.swing.JMenuItem();
         mnKategori = new javax.swing.JMenuItem();
+        mnLaporan = new javax.swing.JMenu();
+        mnLTransaksi = new javax.swing.JMenuItem();
+        mnLProduk = new javax.swing.JMenuItem();
+        mnLPelanggan = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnAkun = new javax.swing.JMenuItem();
         mnManagerAkun = new javax.swing.JMenuItem();
         mnDbSetting = new javax.swing.JMenuItem();
         mnTentang = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        mnLTransaksi = new javax.swing.JMenuItem();
-        mnLProduk = new javax.swing.JMenuItem();
-        mnLPelanggan = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Utama");
         setLocationByPlatform(true);
 
         jToolBar1.setRollover(true);
+
+        jLabel1.setText("Logged in as ");
+        jToolBar1.add(jLabel1);
+
+        lblRole.setText("jLabel1");
+        jToolBar1.add(lblRole);
+        jToolBar1.add(jSeparator1);
+
+        lblUsername.setText("jLabel2");
+        jToolBar1.add(lblUsername);
 
         lbTransaksi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/transaksi64.png"))); // NOI18N
         lbTransaksi.setText("Transaksi");
@@ -113,7 +139,7 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbTransaksi)
                     .addComponent(lbKaryawan))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbProduk, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbPelanggan, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -126,7 +152,7 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbProduk)
                     .addComponent(lbTransaksi))
-                .addGap(85, 85, 85)
+                .addGap(214, 214, 214)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbKaryawan)
                     .addComponent(lbPelanggan))
@@ -169,9 +195,42 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        mnLaporan.setText("Laporan");
+
+        mnLTransaksi.setText("Transaksi");
+        mnLTransaksi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnLTransaksiActionPerformed(evt);
+            }
+        });
+        mnLaporan.add(mnLTransaksi);
+
+        mnLProduk.setText("Produk");
+        mnLProduk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnLProdukActionPerformed(evt);
+            }
+        });
+        mnLaporan.add(mnLProduk);
+
+        mnLPelanggan.setText("Pelanggan");
+        mnLPelanggan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnLPelangganActionPerformed(evt);
+            }
+        });
+        mnLaporan.add(mnLPelanggan);
+
+        jMenuBar1.add(mnLaporan);
+
         jMenu2.setText("Edit");
 
         mnAkun.setText("Akun");
+        mnAkun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnAkunActionPerformed(evt);
+            }
+        });
         jMenu2.add(mnAkun);
 
         mnManagerAkun.setText("Manajer Akun");
@@ -200,34 +259,6 @@ public class FrmMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Laporan");
-
-        mnLTransaksi.setText("Transaksi");
-        mnLTransaksi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnLTransaksiActionPerformed(evt);
-            }
-        });
-        jMenu3.add(mnLTransaksi);
-
-        mnLProduk.setText("Produk");
-        mnLProduk.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnLProdukActionPerformed(evt);
-            }
-        });
-        jMenu3.add(mnLProduk);
-
-        mnLPelanggan.setText("Pelanggan");
-        mnLPelanggan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnLPelangganActionPerformed(evt);
-            }
-        });
-        jMenu3.add(mnLPelanggan);
-
-        jMenuBar1.add(jMenu3);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -250,6 +281,7 @@ public class FrmMenu extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void lbTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbTransaksiMouseClicked
@@ -284,6 +316,8 @@ public class FrmMenu extends javax.swing.JFrame {
 
     private void mnKaryawanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnKaryawanActionPerformed
         // TODO add your handling code here:
+        FrmKaryawan karyawan = new FrmKaryawan();
+        karyawan.setVisible(true);
     }//GEN-LAST:event_mnKaryawanActionPerformed
 
     private void mnProdukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnProdukActionPerformed
@@ -334,6 +368,10 @@ public class FrmMenu extends javax.swing.JFrame {
         report.Pelanggan();
     }//GEN-LAST:event_mnLPelangganActionPerformed
 
+    private void mnAkunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAkunActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnAkunActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -364,22 +402,25 @@ public class FrmMenu extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmMenu().setVisible(true);
+                new FrmMenu(new Akun()).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JToolBar.Separator jSeparator1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lbKaryawan;
     private javax.swing.JLabel lbPelanggan;
     private javax.swing.JLabel lbProduk;
     private javax.swing.JLabel lbTransaksi;
+    private javax.swing.JLabel lblRole;
+    private javax.swing.JLabel lblUsername;
     private javax.swing.JMenuItem mnAkun;
     private javax.swing.JMenuItem mnDbSetting;
     private javax.swing.JMenuItem mnKaryawan;
@@ -387,6 +428,7 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnLPelanggan;
     private javax.swing.JMenuItem mnLProduk;
     private javax.swing.JMenuItem mnLTransaksi;
+    private javax.swing.JMenu mnLaporan;
     private javax.swing.JMenuItem mnManagerAkun;
     private javax.swing.JMenuItem mnPelanggan;
     private javax.swing.JMenuItem mnProduk;

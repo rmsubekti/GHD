@@ -31,7 +31,6 @@ public class FrmPelanggan extends javax.swing.JFrame {
      */
     public FrmPelanggan() {
         initComponents();
-        setLocationRelativeTo(this);
         orangDAO = Factory.getOrangDAO();
         tableHeader = new String[]{
             "ID",
@@ -339,6 +338,7 @@ public class FrmPelanggan extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtIdKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIdKeyTyped
